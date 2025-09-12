@@ -1,0 +1,3 @@
+[console_scripts]
+ai-cli = ai_project.cli:app
+server = ai_project.server:main

@@ -1,0 +1,50 @@
+[project]
+name = "ai-project"
+version = "0.1.0"
+description = "AI-oriented Python project"
+authors = [{ name = "Uni Lin" }]
+requires-python = ">=3.11,<3.12"
+readme = "README.md"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "typer",
+    "pydantic",
+    "pydantic-settings",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+]
+
+[project.scripts]
+ai-cli = "ai_project.cli:app"
+server = "ai_project.server:main"
+
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "httpx>=0.28.1",
+    "mypy>=1.18.1",
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.13.0",
+]
+
+[tool.ruff]
+line-length = 100
+lint.select = ["E", "F", "I", "UP", "B"]
+
+[tool.black]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+strict_optional = true
+warn_unused_ignores = true
+mypy_path = "src"
