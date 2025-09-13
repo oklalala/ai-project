@@ -4,6 +4,8 @@ from pydantic import BaseModel
 
 class PredictRequest(BaseModel):
     x: int  # 輸入數字
+    multiplier: int = 2  # 預設乘數
+    model_config = {"extra": "forbid"}  # 禁止多餘欄位
 
 
 class PredictResponse(BaseModel):

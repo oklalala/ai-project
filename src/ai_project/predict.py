@@ -9,4 +9,4 @@ router = APIRouter()
 @router.post("/predict", response_model=PredictResponse)
 def predict(payload: PredictRequest):
     # 簡單邏輯：輸入 * 2
-    return PredictResponse(pred=payload.x * 2)
+    return PredictResponse(pred=payload.x * payload.multiplier)
