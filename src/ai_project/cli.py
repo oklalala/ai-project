@@ -8,6 +8,8 @@ AI 專案的命令列介面（CLI）
 
 import typer
 
+from .core import predict_value
+
 app = typer.Typer(help="AI Project CLI")
 
 
@@ -26,7 +28,7 @@ def train():
 @app.command()
 def infer(x: int = 1):
     """推論（示範）。"""
-    typer.echo({"pred": x})
+    typer.echo({"pred": predict_value(x)})
 
 
 if __name__ == "__main__":
